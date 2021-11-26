@@ -88,9 +88,20 @@ def displaying_results(coordinates, new_coordinates):
 
     plt.show()
 
+def write_transformed_coordinates(new_coordinates):
+    with open("transformed_coordinates.txt", "w") as f:
+        res = list(new_coordinates)
+        for k in range(len(new_coordinates)):
+            f.write(str(new_coordinates[k]).replace("[", "").replace("]", ""))
+            f.write("\n")
+        f.close()
+
+
+
 if __name__ == "__main__":
     coordinates = editLines()
     new_coordinates = np.asarray(affine_transform(coordinates))
+    write_transformed_coordinates(new_coordinates)
     displaying_results(coordinates, new_coordinates)
 
 
