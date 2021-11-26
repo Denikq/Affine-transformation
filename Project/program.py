@@ -9,7 +9,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-
 # function for opening and reading file
 def readFile():
     with open("DS3.txt") as f:
@@ -88,6 +87,7 @@ def displaying_results(coordinates, new_coordinates):
 
     plt.show()
 
+# function for saving transformed coordinates
 def write_transformed_coordinates(new_coordinates):
     with open("transformed_coordinates.txt", "w") as f:
         res = list(new_coordinates)
@@ -95,7 +95,6 @@ def write_transformed_coordinates(new_coordinates):
             f.write(str(new_coordinates[k]).replace("[", "").replace("]", ""))
             f.write("\n")
         f.close()
-
 
 
 if __name__ == "__main__":
